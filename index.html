@@ -1,28 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Unicommerce CRM</title>
     <meta name="google-signin-client_id" content="1089203758896-qpk13l5sl84jnkd4vic2j2q5f7lasr45.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer>
 </head>
 <body>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <script>function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-</script>
-    <a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
+    <h1>Sign in iwith your Google Account </h1>
+    <div class="g-signin2"></div>
 </body>
 </html>
