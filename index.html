@@ -1,141 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Uniware Admin Panel</title>
-    <script type="text/javascript">
-        (function (foo) {
-            foo.BrowserDetect = {
-                isBelowIE9: false
-            };
-        })(this);
-    </script>
-    <link rel="shortcut icon" id="favicon" href="https://ud1.ucdn.in/src/img/favicon.ico" type="image/png">
+    <title>Unicommerce CRM</title>
+    <meta name="google-signin-client_id" content="1089203758896-qpk13l5sl84jnkd4vic2j2q5f7lasr45.apps.googleusercontent.com">
 </head>
 <body>
-<style>
-    /* login google css */
-    /* line 1124, ../../src/style/main.scss */
-    body {
-        background: #edefef;
-        font-family: Arial, sans-serif;
-        margin: 0px;
-    }
-
-    /* line 1127, ../../src/style/main.scss */
-    .new_login {
-        width: 500px;
-        margin: 0 auto;
-        position: absolute;
-        top: calc(50% - 150px);
-        left: calc(50% - 250px);
-        height: 300px;
-        background: #fff;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-        -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    /* line 1138, ../../src/style/main.scss */
-    .new_login .login_header .logo_image {
-        display: block;
-        margin: 0 auto;
-        margin-top: 50px;
-    }
-
-    /* line 1145, ../../src/style/main.scss */
-    .new_login .login_form {
-        margin: 0 !important;
-        text-align: center;
-        padding: 40px;
-        color: rgba(95, 93, 93, 0.78);
-        font-size: 20px;
-    }
-
-    /* line 1151, ../../src/style/main.scss */
-    .new_login .login_form .controls a {
-        display: block;
-        margin: 40px auto 0 auto;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-        -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    /* line 1157, ../../src/style/main.scss */
-    .new_login .login_form .controls a img {
-        display: none;
-    }
-
-    /* line 1160, ../../src/style/main.scss */
-    .new_login .login_form .controls a:active {
-        opacity: 0.6;
-    }
-
-    .new_login .login_header .logo_image {
-        background-image: url(https://ud1.ucdn.in/src/img/sprite/unidesk.png);
-        background-position: 0px 0px;
-        height: 47px;
-        width: 61px;
-    }
-
-    .new_login .login_form .controls a {
-        background-image: url(https://ud1.ucdn.in/src/img/sprite/google.png);
-        background-repeat: no-repeat;
-    }
-    .new_login .login_form .controls a {
-        background-position: 0px 0px;
-        height: 53px;
-        width: 272px;
-    }
-    .login-page .login_header {
-        background: none repeat scroll 0 0 #444444;
-        border-bottom: 1px solid #282828;
-        display: block;
-        height: 68px;
-        width: 100%;
-    }
-    .login-page .logo_image {
-        background-position: 0 -95px  !important;
-        display: block;
-        height: 27px;
-        margin: 21px 0;
-        width: 140px;
-        float: left;
-    }
-    .login-page .logo_image {
-        background: url("/img/uniwareSprite.png") no-repeat scroll 0 0
-        rgba(0, 0, 0, 0);
-    }
-</style>
-
-<div class="login-page">
-    <div class="login_header">
-        <div class="row" style="margin: 0px 50px;">
-            <a id="logo-link" class="logo_image" href="/"></a>
-        </div>
-    </div>
-</div>
-
-<div class="new_login">
-    <div id="calWidth" class="hidden"></div>
-    <div id="body-header" class="login_header">
-        <div class="row">
-            <a id="logo-link" class="logo_image" href="/"></a>
-        </div>
-    </div>
-    <div class="login_form" style="margin-top: 80px;">
-        Sign in with your Unicommerce account
-        <div class="control-group">
-            <div class="controls">
-              <ahref="https://accounts.google.com/o/oauth2/auth?client_id=1089203758896-qpk13l5sl84jnkd4vic2j2q5f7lasr45.apps.googleusercontent.com&response_type=code&scope=https://oauth2.googleapis.com/token&access_type=offline&redirect_uri=https://knkgarg1999.github.io/UniCRM/"></a>
-            </div>
-        </div>
-    </div>
-</div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+    <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 </body>
 </html>
